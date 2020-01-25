@@ -10,6 +10,7 @@ flask = "*"
 web = "*"
 myapplication = "*"
 flask-wtf = "*"
+flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
