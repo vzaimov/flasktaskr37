@@ -2,9 +2,16 @@
 
 import os
 import unittest
+
 from project.views import app, db
 from project._config import basedir
 from project.models import User
+# check here: https://stackoverflow.com/questions/28705029/pycharm-error-no-module-when-trying-to-import-own-module-python-script
+# using project.something is not running in coverage
+
+# from views import app, db
+# from _config import basedir
+# from models import User
 
 TEST_DB = 'test.db'
 
@@ -42,7 +49,7 @@ class AllTests(unittest.TestCase):
     def test_form_is_present(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Please login to access your task list', response.data)
+        self.assertIn(b'Please sign in to access your task list', response.data)
 
     def login(self, name, password):
         return self.app.post('/', data=dict(
