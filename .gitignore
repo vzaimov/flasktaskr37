@@ -11,3 +11,4 @@ help.txt
 
 /.coverage
 /project/.coverage
+/project/htmlcov/

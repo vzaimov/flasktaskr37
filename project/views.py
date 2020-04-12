@@ -5,16 +5,15 @@
 #################
 
 import datetime
-from project.forms import AddTaskForm, RegisterForm, LoginForm
+#from project.forms import AddTaskForm, RegisterForm, LoginForm
 # check here: https://stackoverflow.com/questions/28705029/pycharm-error-no-module-when-trying-to-import-own-module-python-script
 
-#from forms import AddTaskForm, RegisterForm, LoginForm
+from forms import AddTaskForm, RegisterForm, LoginForm
 from functools import wraps
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
-from project.models import Task, User
-#from models import Task, User
+
 
 ################
 #### config ####
@@ -24,6 +23,9 @@ app = Flask(__name__)
 app.config.from_object('_config')
 db = SQLAlchemy(app)
 
+#this must be imported after initializing app and db
+#from project.models import Task, User
+from models import Task, User
 
 # helper functions
 
@@ -77,8 +79,6 @@ def login():
                 return redirect(url_for('tasks'))
             else:
                 error = 'Invalid username or password.'
-        else:
-            error = 'Both fields are required.'
     return render_template('login.html', form=form, error=error)
 
 

@@ -3,15 +3,15 @@
 import os
 import unittest
 
-from project.views import app, db
-from project._config import basedir
-from project.models import User
+#from project.views import app, db
+#from project._config import basedir
+#from project.models import User
 # check here: https://stackoverflow.com/questions/28705029/pycharm-error-no-module-when-trying-to-import-own-module-python-script
 # using project.something is not running in coverage
 
-# from views import app, db
-# from _config import basedir
-# from models import User
+from views import app, db
+from _config import basedir
+from models import User
 
 TEST_DB = 'test.db'
 
